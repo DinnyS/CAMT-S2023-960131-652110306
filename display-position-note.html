@@ -1,5 +1,164 @@
 <html>
 
+    <head>
+        <title>Copy same as teacher</title>
+    </head>
 
+    <style>
+        .PG{
+            border: 1px dashed black;
+            padding: 1%;
+            width: 50%;
+            background-color: rgb(227, 238, 246);
+        }
 
+        .blockk{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 62, 62);
+            opacity: 0.7;
+        }
+    </style>
+
+    <body>
+
+        <div style="background-color: black;
+                        width: 100%;
+                        height: 300%;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        opacity: 0.5;
+            ">
+            </div>
+
+                <div style="background-color: rgb(255, 255, 255);
+                            width: 30%;
+                            height: 15%;
+                            position: fixed;
+                            color: pink;
+                            text-align: center;
+                            font-size: 48px;
+                            margin-left: 35%;
+                            margin-top: 20%;
+                ">
+                Songkran Festival 2023
+                </div>
+
+        <h1>Box Model</h1>
+        <div class="PG">
+            <div style="width: 80%; 
+                        background-color: pink; 
+                        padding: 30px ;
+                        ">
+
+                <div style="background-color: orangered; 
+                            padding: 30px ;
+                            ">
+
+                    <div style="background-color: green; 
+                                border: 30px solid orange;
+                                ">
+                        Simple Box
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1>CSS Display</h1>
+            <h2>inline</h2>
+                <div class="PG">
+                    <div style="display: inline; background-color: yellow;">inline text1 </div>
+                    <div style="display: inline; background-color: orange;">inline text2 </div>
+                    <div style="display: inline; background-color: red;">inline text3 </div>
+                    <div style="display: inline; background-color: green;">inline text4 </div>
+                    <div style="display: inline; background-color: purple;">inline text5 </div>
+                </div>
+
+            <h2>block</h2>
+                <div class="PG">
+                    <div style="display: block; background-color: yellow;">inline text1 </div>
+                    <div style="display: block; background-color: orange;">inline text2 </div>
+                    <div style="display: block; background-color: red;">inline text3 </div>
+                    <div style="display: block; background-color: green;">inline text4 </div>
+                    <div style="display: block; background-color: purple;">inline text5 </div>
+                </div>
+
+            <h2>inline-block</h2>
+                <div class="PG">
+                    <div style="display: inline-block;">apple</div>
+                    <div style="display: inline-block;">orange</div>
+                    <div style="display: inline-block;">mango</div>
+                    <div style="display: inline-block;">watermelon</div>
+                </div>
+
+            <h2>none</h2>
+                <div class="PG">
+                    <div style="display: inline-block;">apple</div>
+                    <div style="display: inline-block;">orange</div>
+                    <div style="display: none;">mango</div>
+                    <div style="display: inline-block;">watermelon</div>
+                </div>
+
+            <h2>display:none vs visibility:hidden</h2>
+                <div class="PG">
+                    <div style="display: inline-block;">apple</div>
+                    <div style="display: inline-block; visibility: hidden;">orange</div>
+                    <div style="display: none;">mango</div>
+                    <div style="display: inline-block;">watermelon</div>
+                </div>
+
+        <h1>CSS Position</h1>    
+            <h2>static</h2>
+                <div class="PG">
+                    <div class="blockk"
+                    style="position: static;">
+                    </div>
+                </div>
+
+            <h2>absolute</h2>
+            <h3>fixed width/height</h3>
+                <div class="PG" style="position: relative;">
+                    <div class="blockk"
+                    style=" position: absolute;
+                            width: 100px;
+                            height: 30px;
+                            ">
+                    </div>
+                </div>
+
+            <h3>no width/height</h3>
+                <div class="PG" style="position: relative;">
+                    <div class="blockk"
+                    style=" position: absolute;
+                            width: 100%;
+                            height: 5px;
+                            ">
+                    </div>
+                </div>
+
+            <h3>fixed width/height + right/top</h3>
+                <div class="PG" style="position: relative; height: 30%;">
+                    <div style="background-color: rgb(216, 216, 216); opacity: 1; width: 90%; height: 65%; padding: 5%;">
+                        <div class="blockk"
+                        style=" position: absolute;
+                                top: -10px;
+                                right: -10px;
+                                width: 30px;
+                                height: 30px;
+                                border-radius: 50%;
+                                background-color: rgb(59, 59, 59);
+                                color: rgb(255, 255, 255);
+                                text-align: center;
+                                font-weight: bolder;
+                                padding: 1% 0.5% 0 0.5%;
+                                ">
+                                X
+                        </div>
+                    </div>
+                </div>
+            
+    </body>
 </html>
