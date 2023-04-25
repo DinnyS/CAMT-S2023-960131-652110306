@@ -117,12 +117,18 @@
         .navigation-container{
             margin-top: 30px;
             margin-left: 30px;
-            width: 500px;
-            height: 50px;
+            width: 550px;
+            height: 70px;
             border: 1px solid black;
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+            text-align: center;
+            
+        }
+
+        .navigation-item-icon img{
+            width: 25px;
         }
 
 
@@ -130,25 +136,25 @@
 
     <div class="navigation-container">
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/3917/3917267.png"></div>
         <div class="navigation-item-label">
           First Menu
         </div>
       </div>
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/6676/6676508.png"></div>
         <div class="navigation-item-label">
           Second Menu
         </div>
       </div>
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><img src="https://cdn-icons-png.flaticon.com/512/126/126428.png"></div>
         <div class="navigation-item-label">
           Third Menu
         </div>
       </div>
       <div class="navigation-item">
-        <div class="navigation-item-icon">icon</div>
+        <div class="navigation-item-icon"><img src="https://freeiconshop.com/wp-content/uploads/edd/shield-outline.png"></div>
         <div class="navigation-item-label">
           Fourth Menu
         </div>
@@ -163,33 +169,145 @@
   <h3>playground</h3>
   <div class="playground">
     <style>
+          .card-content-image-section img{
+            width: 250px;
+            height: 350px;
+            border-radius: 1%;
+          }
+
+          .card-list-container{
+            width: 60%;
+
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            gap: 15px;
+          }
+
+          .card-content{
+            width: 250px;
+            height: 450px;
+            background-color: white;
+          }
+
+          .card-content-detail-section{
+            padding:10px;
+            padding-right: 20px;
+          }
+          .product-name{
+            font-weight: bolder;
+          }
+          .product-description{
+            font-size: 14px;
+          }
+          .product-price{
+            font-size: 18px;
+            font-weight: bolder;
+            text-align: right;
+          }
+      
 
     </style>
 
-    <div>
-      <div class="card-list-container">
-        <div class="card-container">
-          <div class="card-content">
-            <div class="card-content-image-section">
-              <img src="">
-            </div>
-            <div class="card-content-detail-section">
-              <div class="product-name">
-                Elite Obsidian
-              </div>
-              <div class="product-description">
-                Awesome product from Mars made by hand of Ultraman
-              </div>
-              <div class="product-price">
-                1,000
-              </div>
-            </div>
+
+<div>
+  <div class="card-list-container">
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-content-image-section">
+          <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg">
+        </div>
+        <div class="card-content-detail-section">
+          <div class="product-name">
+            Elite Obsidian
+          </div>
+          <div class="product-description">
+            Awesome product from Mars made by hand of Ultraman
+          </div>
+          <div class="product-price">
+            1,000
           </div>
         </div>
       </div>
-      ... duplicated card here
+    </div>
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-content-image-section">
+          <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg">
+        </div>
+        <div class="card-content-detail-section">
+          <div class="product-name">
+            Elite Obsidian
+          </div>
+          <div class="product-description">
+            Awesome product from Mars made by hand of Ultraman
+          </div>
+          <div class="product-price">
+            1,000
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-content-image-section">
+          <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg">
+        </div>
+        <div class="card-content-detail-section">
+          <div class="product-name">
+            Elite Obsidian
+          </div>
+          <div class="product-description">
+            Awesome product from Mars made by hand of Ultraman
+          </div>
+          <div class="product-price">
+            1,000
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-content-image-section">
+          <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg">
+        </div>
+        <div class="card-content-detail-section">
+          <div class="product-name">
+            Elite Obsidian
+          </div>
+          <div class="product-description">
+            Awesome product from Mars made by hand of Ultraman
+          </div>
+          <div class="product-price">
+            1,000
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-container">
+      <div class="card-content">
+        <div class="card-content-image-section">
+          <img src="https://static.displate.com/857x1200/displate/2022-07-07/fb201c5aef2a8558a1eec3a095be6d49_1c1023275f02c2ee7bc146309a812775.jpg">
+        </div>
+        <div class="card-content-detail-section">
+          <div class="product-name">
+            Elite Obsidian
+          </div>
+          <div class="product-description">
+            Awesome product from Mars made by hand of Ultraman
+          </div>
+          <div class="product-price">
+            1,000
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+</div>
+</div>
 
   <h2>Sidebar</h2>
   <h3>example</h3>
@@ -198,6 +316,39 @@
   <h3>playground</h3>
   <div class="playground">
     <style>
+
+      .sidebar-container{
+        width: 300px;
+        margin: 10px;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .sidebar-profile-section{
+        font-size: 24px;
+        font-weight: bolder;
+        border: 1px solid black;
+        border-bottom: unset;
+        padding: 5px;
+      }
+
+      .sidebar-menu-section{
+        height: 300px;
+        border: 1px solid black;
+        padding: 5px;
+      }
+
+      .sidebar-menu-item{
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .sidebar-footer-section{
+        border: 1px solid black;
+        border-top: unset;
+        padding: 5px;
+        font-size: 18px;
+      }
+
 
     </style>
 
