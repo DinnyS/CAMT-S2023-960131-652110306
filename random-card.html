@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>pokdeng!</title>
+    </head>
+
+<style>
+    .pokcard{
+        width: 250px;
+        height: 450px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2.5%;
+    }
+
+    .clicktoRandom :hover{
+                            width: 100%; 
+                            height: 25%;
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(75, 75, 75);
+                            border-bottom-left-radius: 1%;
+                            border-bottom-right-radius: 1%;
+                            font-size: 72px;
+
+    }
+    .clicktoRandom :active{
+                            width: 100%; 
+                            height: 25%;
+                            color: rgb(255, 255, 255);
+                            background-color: rgb(37, 123, 229);
+                            border-bottom-left-radius: 1%;
+                            border-bottom-right-radius: 1%;
+                            font-size: 72px;
+
+    }
+
+</style>
+
+
+    <body>
+
+        <div class="zone" 
+            style=" background-color: green; 
+                    width: 90%; 
+                    height: 800px; 
+                    border-radius: 1%; 
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                    margin-left: 5%;
+                    margin-right: 5%;
+            ">
+                <div class="zonecard" 
+                    style=" width: 90%;
+                            height: 70%;
+                            display: flex;
+                            justify-content: space-around;
+                            align-content: center;
+                            margin: 0 auto;
+                            padding-top: 5%;
+                            
+                ">
+                    <div class="pokcard"></div>
+                    <div class="pokcard"></div>
+                    <div class="pokcard"></div>
+                    <div class="pokcard"></div>
+                </div>
+                <button class="clicktoRandom"
+                    style=" width: 100%; 
+                            height: 25%;
+                            color: aliceblue;
+                            background-color: rgb(64, 59, 52);
+                            border-bottom-left-radius: 1%;
+                            border-bottom-right-radius: 1%;
+                            font-size: 72px;
+
+
+                            ">Click to Random</button>
+
+        </div>
+        
+
+
+        <script>
+
+        // card number and type
+            var CARD_TYPE = ['♣', '♦', '♥', '♠']
+            var CARD_NUMBER = ['A', '1', '2', '3', '4', '5', '6',' 7', '8', '9', '10', 'J', 'Q', 'K']
+
+        // random function
+        // max: number > 0
+        // return [0, max -1]
+            function random(max) {
+            return parseInt(Math.random() * max) % max
+            }
+
+        // how to use random function
+            var cardType = CARD_TYPE[random(CARD_TYPE.length)]
+            var cardNumber = CARD_NUMBER[random(CARD_NUMBER.length)]
+            console.log(cardType, cardNumber)
+
+        </script>
+    </body>
+</html>
