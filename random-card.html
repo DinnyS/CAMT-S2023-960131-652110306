@@ -5,30 +5,49 @@
 
 <style>
     .pokcard{
-        width: 250px;
-        height: 450px;
+        width: 275px;
+        height: 400px;
         background-color: rgb(255, 255, 255);
         border-radius: 2.5%;
+        margin: 20px;
+        border: 5px solid black;
     }
 
-    .clicktoRandom :hover{
-                            width: 100%; 
-                            height: 25%;
-                            color: rgb(255, 255, 255);
-                            background-color: rgb(75, 75, 75);
-                            border-bottom-left-radius: 1%;
-                            border-bottom-right-radius: 1%;
-                            font-size: 72px;
+    .card-type{
+        margin-top: -70px;
+        margin-right: 20px;
+        font-size: 72px;
+        text-align: right;
+    }
+
+    .card-num{
+        font-size: 72px;
+        text-align: center;
+    }
+
+    .clicktoRandom { width: 35%; 
+                    height: 50%;
+                    color: rgb(18, 18, 18);
+                    background-color: rgb(226, 226, 226);
+                    border-radius: 2.5%;
+                    font-size: 52px;
+                    transition: 0.1s;
+    }
+
+    .clicktoRandom:hover{ 
+                        color: aliceblue;
+                        background-color: rgb(61, 116, 255);
+                        transition: 0.3s;
 
     }
-    .clicktoRandom :active{
-                            width: 100%; 
-                            height: 25%;
-                            color: rgb(255, 255, 255);
-                            background-color: rgb(37, 123, 229);
-                            border-bottom-left-radius: 1%;
-                            border-bottom-right-radius: 1%;
-                            font-size: 72px;
+    .clicktoRandom:active{
+
+                        color: rgb(255, 242, 0);
+                        background-color: rgb(255, 0, 0);
+                        border-bottom-left-radius: 1%;
+                        border-bottom-right-radius: 1%;
+                        font-size: 52px;
+
 
     }
 
@@ -39,14 +58,19 @@
 
         <div class="zone" 
             style=" background-color: green; 
-                    width: 90%; 
+                    display: flexbox;
+                    width: 1350px; 
                     height: 800px; 
                     border-radius: 1%; 
                     margin-top: 5%;
                     margin-bottom: 5%;
-                    margin-left: 5%;
-                    margin-right: 5%;
+                    margin: 0 auto;
+                    
             ">
+
+     
+
+
                 <div class="zonecard" 
                     style=" width: 90%;
                             height: 70%;
@@ -57,23 +81,50 @@
                             padding-top: 5%;
                             
                 ">
-                    <div class="pokcard"></div>
-                    <div class="pokcard"></div>
-                    <div class="pokcard"></div>
-                    <div class="pokcard"></div>
+                    <div class="pokcard" id="pokc1">
+                        <div class="card-type">
+                            <p id="ct1"></p>
+                        </div>
+                        <div class="card-num">
+                            <p id="cn1"></p>
+                        </div>
+                    </div>
+                    <div class="pokcard" id="pokc2">
+                        <div class="card-type">
+                            <p id="ct2"></p>
+                        </div>
+                        <div class="card-num">
+                            <p id="cn2"></p>
+                        </div>
+                    </div>
+                    <div class="pokcard" id="pokc3">
+                        <div class="card-type">
+                            <p id="ct3"></p>
+                        </div>
+                        <div class="card-num">
+                            <p id="cn3"></p>
+                        </div>
+                    </div>
+                    <div class="pokcard" id="pokc4">
+                        <div class="card-type">
+                            <p id="ct4"></p>
+                        </div>
+                        <div class="card-num">
+                            <p id="cn4"></p>
+                        </div>
+                    </div>
                 </div>
+
+            <div class="button" 
+                style=" width: 100%;
+                        height: 20%;
+                        display: flex;
+                        justify-content: center;
+
+            ">
                 <button class="clicktoRandom"
-                    style=" width: 100%; 
-                            height: 25%;
-                            color: aliceblue;
-                            background-color: rgb(64, 59, 52);
-                            border-bottom-left-radius: 1%;
-                            border-bottom-right-radius: 1%;
-                            font-size: 72px;
-
-
-                            ">Click to Random</button>
-
+                    onclick="runner()">Click to Random</button>
+            </div>
         </div>
         
 
@@ -91,10 +142,165 @@
             return parseInt(Math.random() * max) % max
             }
 
-        // how to use random function
-            var cardType = CARD_TYPE[random(CARD_TYPE.length)]
-            var cardNumber = CARD_NUMBER[random(CARD_NUMBER.length)]
-            console.log(cardType, cardNumber)
+
+                var cardType1 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber1 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 1 :", cardType1, cardNumber1)
+
+                var cardType2 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber2 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 2 :", cardType2, cardNumber2)
+                
+                var cardType3 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber3 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 3 :", cardType3, cardNumber3)
+
+                var cardType4 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber4 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 4 :", cardType4, cardNumber4)
+
+                const ct1 = document.getElementById('ct1').innerHTML = cardType1
+                const cr1 = document.getElementById('cn1').innerHTML = cardNumber1
+                if(ct1 == '♦' || ct1 == '♥'){
+                    document.getElementById('ct1').style.color = 'red'
+                    document.getElementById('cn1').style.color = 'red'
+                    document.getElementById('pokc1').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct1').style.color = 'black'
+                    document.getElementById('cn1').style.color = 'black'
+                    document.getElementById('pokc1').style.borderColor = 'black'
+                }
+
+
+
+                const ct2 = document.getElementById('ct2').innerHTML = cardType2
+                const cr2 = document.getElementById('cn2').innerHTML = cardNumber2
+                if(ct2 == '♦' || ct2 == '♥'){
+                    document.getElementById('ct2').style.color = 'red'
+                    document.getElementById('cn2').style.color = 'red'
+                    document.getElementById('pokc2').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct2').style.color = 'black'
+                    document.getElementById('cn2').style.color = 'black'
+                    document.getElementById('pokc2').style.borderColor = 'black'
+                }
+
+
+
+                const ct3 = document.getElementById('ct3').innerHTML = cardType3
+                const cr3 = document.getElementById('cn3').innerHTML = cardNumber3
+                if(ct3 == '♦' || ct3 == '♥'){
+                    document.getElementById('ct3').style.color = 'red'
+                    document.getElementById('cn3').style.color = 'red'
+                    document.getElementById('pokc3').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct3').style.color = 'black'
+                    document.getElementById('cn3').style.color = 'black'
+                    document.getElementById('pokc3').style.borderColor = 'black'
+                }
+
+
+
+                const ct4 = document.getElementById('ct4').innerHTML = cardType4
+                const cr4 = document.getElementById('cn4').innerHTML = cardNumber4
+                if(ct4 == '♦' || ct1 == '♥'){
+                    document.getElementById('ct4').style.color = 'red'
+                    document.getElementById('cn4').style.color = 'red'
+                    document.getElementById('pokc4').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct4').style.color = 'black'
+                    document.getElementById('cn4').style.color = 'black'
+                    document.getElementById('pokc4').style.borderColor = 'black'
+                }
+           
+         // Button
+
+        function runner(){
+
+            // how to use random function
+                var cardType1 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber1 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 1 :", cardType1, cardNumber1)
+
+                var cardType2 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber2 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 2 :", cardType2, cardNumber2)
+                
+                var cardType3 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber3 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 3 :", cardType3, cardNumber3)
+
+                var cardType4 = CARD_TYPE[random(CARD_TYPE.length)]
+                var cardNumber4 = CARD_NUMBER[random(CARD_NUMBER.length)]
+                console.log("Card 4 :", cardType4, cardNumber4)
+
+                /*card1*/
+                const ct1 = document.getElementById('ct1').innerHTML = cardType1
+                const cr1 = document.getElementById('cn1').innerHTML = cardNumber1
+                if(ct1 == '♦' || ct1 == '♥'){
+                    document.getElementById('ct1').style.color = 'red'
+                    document.getElementById('cn1').style.color = 'red'
+                    document.getElementById('pokc1').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct1').style.color = 'black'
+                    document.getElementById('cn1').style.color = 'black'
+                    document.getElementById('pokc1').style.borderColor = 'black'
+                }
+
+
+
+                const ct2 = document.getElementById('ct2').innerHTML = cardType2
+                const cr2 = document.getElementById('cn2').innerHTML = cardNumber2
+                if(ct2 == '♦' || ct2 == '♥'){
+                    document.getElementById('ct2').style.color = 'red'
+                    document.getElementById('cn2').style.color = 'red'
+                    document.getElementById('pokc2').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct2').style.color = 'black'
+                    document.getElementById('cn2').style.color = 'black'
+                    document.getElementById('pokc2').style.borderColor = 'black'
+                }
+
+
+
+                const ct3 = document.getElementById('ct3').innerHTML = cardType3
+                const cr3 = document.getElementById('cn3').innerHTML = cardNumber3
+                if(ct3 == '♦' || ct3 == '♥'){
+                    document.getElementById('ct3').style.color = 'red'
+                    document.getElementById('cn3').style.color = 'red'
+                    document.getElementById('pokc3').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct3').style.color = 'black'
+                    document.getElementById('cn3').style.color = 'black'
+                    document.getElementById('pokc3').style.borderColor = 'black'
+                }
+
+
+
+                const ct4 = document.getElementById('ct4').innerHTML = cardType4
+                const cr4 = document.getElementById('cn4').innerHTML = cardNumber4
+                if(ct4 == '♦' || ct1 == '♥'){
+                    document.getElementById('ct4').style.color = 'red'
+                    document.getElementById('cn4').style.color = 'red'
+                    document.getElementById('pokc4').style.borderColor = 'red'
+                }
+                else{
+                    document.getElementById('ct4').style.color = 'black'
+                    document.getElementById('cn4').style.color = 'black'
+                    document.getElementById('pokc4').style.borderColor = 'black'
+                }
+               
+            }
+
+
+
 
         </script>
     </body>
