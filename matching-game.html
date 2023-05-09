@@ -27,10 +27,14 @@
                 background-color: green;
                 border-right: 3px solid rgb(64, 64, 64);
                 border-bottom: 3px solid rgb(64, 64, 64);
-                padding: 1%;
+                padding: 0.5%;
                 display: flex;
                 justify-content: flex-start;
+                align-content: flex-start;
                 flex-wrap: wrap;
+                top: 0;
+                left: 0;
+                bottom: 0;
 
     }
 
@@ -72,12 +76,12 @@
 
     .card{
         width: 90px;
-        height: 150px;
+        height: 140px;
         background-color: aliceblue;
         border: 2px solid black;
         border-radius: 5%;
         box-shadow: 3px 7px 5px black;
-        margin: 1%;
+        margin: 0.5%;
     }
 
     .card-title{
@@ -111,7 +115,8 @@
 
     <script>
     
-    var count = 0;
+    var CARD_TYPE = ['♣', '♦', '♥', '♠']
+    var CARD_NUMBER = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     
     var cardList = [
         { value: ['♣', 'A'], isFaceDown: true },
@@ -152,27 +157,26 @@
     function renderCardList() {
         // TODO: define cardZoneElm here
         const cardZoneElm = document.getElementsByClassName('card-zone');
-        if(count>=1){
-        cardZoneElm.remove('card-zone')}
-        count++;
+        
         // before append any DOM(s), you need to clear all children of cardZoneElm
             for (var idx=0; idx < cardList.length; idx++) {
                 // TODO:
                 // if isFaceDown is true, create a card component with 'face-down' class
                 if(cardList[idx].isFaceDown === true){
                 cardElm = htmlToElem(
-                    `<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>`
+                    '<div class="card face-down"><div class="card-title"></div><div class="card-body">?</div></div>'
                     )
                 }
 
                 else{
                     cardElm = htmlToElem(
-                    `<div class="card"><div class="card-title">${cardList[idx].value[0]}</div><div class="card-body">${cardList[idx].value[1]}</div></div>`
+                    '<div class="card"><div class="card-title">' + cardList[idx].value[0] + '</div><div class="card-body">' + cardList[idx].value[1] + '</div></div>'
                     )
                 }
                 
                 cardZoneElm[0].append(cardElm)
         }
+        
      }
       
       
