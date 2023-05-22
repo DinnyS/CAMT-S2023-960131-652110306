@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+
+<style>
+
+  .body{
+    background-color: rgb(121, 197, 255);
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10%;
+
+  }
+
+  #todo-input{
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  #todo-add-button{
+    width: 75px;
+    height: 55px;
+    font-family: cursive, 'Arial Narrow', Arial, sans-serif;
+
+    background-color: rgb(178, 224, 178);
+    border: 5px solid green;
+
+    cursor: pointer;
+    transition: 0.25s;
+  }
+
+  #todo-add-button:hover{
+    width: 75px;
+    height: 55px;
+    font-family: cursive, 'Arial Narrow', Arial, sans-serif;
+
+    background-color: rgb(88, 150, 88);
+    border: 5px solid rgb(112, 255, 131);
+    color: white;
+
+    cursor: pointer;
+    flex-wrap: wrap;
+  }
+
+  .todo-delete-button{
+    width: 75px;
+    height: 25px;
+    background-color: rgb(246, 102, 102);
+    border: 3px solid rgb(255, 166, 0);
+    font-size: 16px;
+    margin-left: 5px;
+
+    cursor: pointer;
+  }
+
+  .todo-item{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 25px;
+
+    font-size: 18px;
+    text-shadow: 2px 2px 2px rgb(175, 175, 175);
+  }
+
+  .todo-list-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+  }
+
+</style>
+
+
+<body class="body">
+	<div class="container">
+		<input type="text" id="todo-input" />
+		<button id="todo-add-button">add</button>
+	</div>
+
+  <div id="todo-list-container"></div>
+
+  <audio id="myAudio">
+    <source src="sound/windows-xp-startup.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+
+<script>
+    var CRUD_CURD_ID = "6cd33bbfc52c4c8e8a0d2cc734c8b287";
+    var CRUD_CURD_RESOURCE_NAME = "todo";
+    var CURD_CURD_API_ENDPOINT = "https://crudcrud.com/api/" + CRUD_CURD_ID + "/" + CRUD_CURD_RESOURCE_NAME;
+// END:configuration zone
+
+// BEGIN: application variables zone
+var APPLICATION_STATE = {
+  todoList: []
+}
+// END: application variables zone
+
+// BEGIN: utility function zone
+function htmlToElem(html) {
+  let temp = document.createElement("template");
+  html = html.trim(); // Never return a space text node as a result
+  temp.innerHTML = html;
+  return temp.content.firstChild;
+}
+// END: utility function zone
+
+
+
+var x = document.getElementById("myAudio"); // ----------------- Sound ---------------
+
+function playAudio() { 
+  x.play(); 
+} 
+
+
+
+
+
+// BEGIN: API fetching zone
+async function loadTodoList(afterLoadFunction) {
+  var headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: "GET",
+    headers: headers
+  };
+
+  fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
+    response.json().then(function (data) {
+      afterLoadFunction(data);
+
+    
+
+    });
+  });
+}
+
+console.log(APPLICATION_STATE.todoList)
+
+function addNewTodoItem(value, afterAddFunction) {
+  var headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+  var requestOptions = {
+    method: "POST",
+    body: JSON.stringify({
+      name: value
+    }),
+    headers: headers
+  };
+
+  fetch(CURD_CURD_API_ENDPOINT, requestOptions).then(function (response) {
+    response.json().then(function (data) {
+      afterAddFunction(data);
+    });
+  });
+}
+
+function deleteData(){
+
+  var requestOptions = {
+    method: "DELETE",
+    body: JSON.stringify({
+      name: value
+    }),
+  }
+
+    fetch(APPLICATION_STATE.todoList,requestOptions)
+      then(response => console.log(response.status))
+    
+  ;
+}
+
+
+function deleteTodoItem(id, afterDeleteFunction) {
+			var deleteEndpoint = CURD_CURD_API_ENDPOINT + "/" + id;
+			var requestOptions = {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json"
+				}
+			};
+
+			fetch(deleteEndpoint, requestOptions)
+				.then(response => {
+					if (response.ok) {
+						afterDeleteFunction(id);
+					} else {
+						console.error("Failed to delete item with ID: " + id);
+					}
+				})
+				.catch(error => console.error(error));
+		}
+
+// END: API fetching zone
+
+// BEGIN: UI Control and logic zone
+function bindEvents() {
+  var addButtonElm = document.getElementById("todo-add-button");
+  addButtonElm.addEventListener("click", function () {
+    var inputElm = document.getElementById("todo-input");
+    var todoValue = inputElm.value;
+    inputElm.value = "";
+    if (todoValue !== "") {
+      playAudio();
+      addNewTodoItem(todoValue, function () {
+        refreshTodoList()
+      });
+    }
+  });
+}
+
+function renderTodoList() {
+			var todoListElm = document.getElementById("todo-list-container");
+			todoListElm.innerHTML = "";
+
+			for (var idx = 0; idx < APPLICATION_STATE.todoList.length; idx++) {
+        var todoItem = APPLICATION_STATE.todoList[idx];
+        var todoItemElm = htmlToElem(
+          '<div class="todo-item">' + todoItem.name + "</div>"
+        );
+
+        var deleteButton = document.createElement("button");
+        deleteButton.classList.add("todo-delete-button")
+				deleteButton.textContent = "Delete";
+				deleteButton.addEventListener("click", deleteButtonClickHandler.bind(null, todoItem._id));
+				todoItemElm.appendChild(deleteButton);
+
+        todoListElm.append(todoItemElm);
+				todoListElm.appendChild(todoItemElm);
+			}
+		}
+
+function deleteButtonClickHandler(id) {
+    deleteTodoItem(id, function (deletedId) {
+        // Find the index of the deleted todo item in the data array
+        var deletedIndex = APPLICATION_STATE.todoList.findIndex(item => item._id === deletedId);
+        if (deletedIndex !== -1) {
+            // Remove the deleted todo item from the data array
+            APPLICATION_STATE.todoList.splice(deletedIndex, 1);
+            // Refresh the rendered todo list
+            renderTodoList();
+        }
+    });
+}
+
+function refreshTodoList () {
+  loadTodoList(function (data) {
+    APPLICATION_STATE.todoList = data;
+    renderTodoList();
+  });
+}
+
+window.onload = function () {
+  bindEvents();
+  refreshTodoList();
+};
+</script>
+
+</html>
+
